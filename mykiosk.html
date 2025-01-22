@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .imgsize{
+        width: 400px;
+        height: 400px;
+    }
+    .haed{
+        text-align: center;
+        font-weight: bolder;
+    }
+    .menuename{
+        height: 40px;
+        font-size: 30px;
+        text-align: center;
+        font-weight: bolder;
+        font-family: 돋움체;
+    }
+    .ft{
+        font-size: 17px;
+        font-weight: bolder;
+    }
+    .cnt{
+        width: 30px;
+    }
+</style>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="4"><div class="haed"><h1>도미노피자 메뉴판</h1></div></td>
+        </tr>
+        <tr>
+            <tr>
+                <td colspan="2">
+                    <div class="menuename">
+                        더블 크러스트 페퍼로니
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="menuename">
+                        더블 크러스트 베이컨체더치즈
+                    </div>
+                </td>
+            </tr>
+            <td><img src="pizza1.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p1_pp" onclick="p1_updatePrice('p1_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p1_pi" onclick="p1_updatePrice('p1_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p1_dc" onclick="p1_updatePrice('p1_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p1_du" onclick="checked" value="p1_du">오리지널 도우<br>
+                <input type="radio" name ="p1_du" value="p1_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p1_money">
+            </td>
+            <td><img src="pizza2.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p2_pp" onclick="p2_updatePrice('p2_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p2_pi" onclick="p2_updatePrice('p2_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p2_dc" onclick="p2_updatePrice('p2_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p2_du" onclick="checked" value="p2_du">오리지널 도우<br>
+                <input type="radio" name ="p2_du" value="p2_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p2_money">
+            </td>
+        </tr>
+        <tr>
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p1_type" value="M" onclick="p1sw('m')">M 19,900
+                <input type="radio" name = "p1_type" value="L" onclick="p1sw('l')">L 26,900
+            </td>
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p2_type" value="M" onclick="p2sw('m')">M 21,500
+                <input type="radio" name = "p2_type" value="L" onclick="p2sw('l')">L 28,900
+            </td>
+        </tr>
+        <tr>
+            <td>
+                수량 
+            <button onclick="p1_minus()"> ← </button>
+                <input type="text" value='0' id="p1_cnt" class="cnt">
+            <button onclick="p1_plus()"> → </button>
+            </td>
+            <td>
+                수량 
+            <button onclick="p2_minus()"> ← </button>
+                <input type="text" value='0' id="p2_cnt" class="cnt">
+            <button onclick="p2_plus()"> → </button>
+            </td>
+        </tr>
+
+
+        <tr>
+            <tr>
+                <td colspan="2">
+                    <div class="menuename">
+                        더블 크러스트 슈퍼슈프림
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="menuename">
+                        더블 크러스트 슈퍼디럭스
+                    </div>
+                </td>
+            </tr>
+            <td><img src="pizza3.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p3_pp" onclick="p3_updatePrice('p3_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p3_pi" onclick="p3_updatePrice('p3_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p3_dc" onclick="p3_updatePrice('p3_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p3_du" onclick="checked" value="p3_du">오리지널 도우<br>
+                <input type="radio" name ="p3_du" value="p3_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p3_money">
+            </td>
+            <td><img src="pizza4.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p4_pp" onclick="p4_updatePrice('p4_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p4_pi" onclick="p4_updatePrice('p4_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p4_dc" onclick="p4_updatePrice('p4_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p4_du" onclick="checked" value="p4_du">오리지널 도우<br>
+                <input type="radio" name ="p4_du" value="p4_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p4_money">
+            </td>
+        </tr>
+        <tr>
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p3_type" value="M" onclick="p3sw('m')">M 21,500
+                <input type="radio" name = "p3_type" value="L" onclick="p3sw('l')">L 28,900
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p4_type" value="M" onclick="p4sw('m')">M 22,500
+                <input type="radio" name = "p4_type" value="L" onclick="p4sw('l')">L 29,900
+            </td>
+        </tr>
+        <tr>
+            <td>
+                수량 
+            <button onclick="p3_minus()"> ← </button>
+                <input type="text" value='0' id="p3_cnt" class="cnt">
+            <button onclick="p3_plus()"> → </button>
+            </td>
+            <td>
+                수량 
+            <button onclick="p4_minus()"> ← </button>
+                <input type="text" value='0' id="p4_cnt" class="cnt">
+            <button onclick="p4_plus()"> → </button>
+            </td>
+        </tr>
+
+
+        <tr>
+            <tr>
+                <td colspan="2">
+                    <div class="menuename">
+                        더블 크러스트 리얼불고기
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="menuename">
+                        포테이토
+                    </div>
+                </td>
+            </tr>
+            <td><img src="pizza5.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p5_pp" onclick="p5_updatePrice('p5_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p5_pi" onclick="p5_updatePrice('p5_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p5_dc" onclick="p5_updatePrice('p5_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p5_du" onclick="checked" value="p5_du">오리지널 도우<br>
+                <input type="radio" name ="p5_du" value="p5_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p5_money">
+            </td>
+            <td><img src="pizza6.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p6_pp" onclick="p6_updatePrice('p6_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p6_pi" onclick="p6_updatePrice('p6_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p6_dc" onclick="p6_updatePrice('p6_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p6_du" onclick="checked" value="p6_du">오리지널 도우<br>
+                <input type="radio" name ="p6_du" value="p6_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p6_money">
+            </td>
+        </tr>
+        <tr>
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p5_type" value="M" onclick="p5sw('m')">M 23,500
+                <input type="radio" name = "p5_type" value="L" onclick="p5sw('l')">L 30,900
+            </td>
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p6_type" value="M" onclick="p6sw('m')">M 20,500
+                <input type="radio" name = "p6_type" value="L" onclick="p6sw('l')">L 27,900
+            </td>
+        </tr>
+        <tr>
+            <td>
+                수량 
+            <button onclick="p5_minus()"> ← </button>
+                <input type="text" value='0' id="p5_cnt" class="cnt">
+            <button onclick="p5_plus()"> → </button>
+            </td>
+            <td>
+                수량 
+            <button onclick="p6_minus()"> ← </button>
+                <input type="text" value='0' id="p6_cnt" class="cnt">
+            <button onclick="p6_plus()"> → </button>
+            </td>
+        </tr>
+
+
+        <tr>
+            <tr>
+                <td colspan="2">
+                    <div class="menuename">
+                        뉴욕 오리진
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="menuename">
+                        리얼 불고기
+                    </div>
+                </td>
+            </tr>
+            <td><img src="pizza7.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p7_pp" onclick="p7_updatePrice('p7_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p7_pi" onclick="p7_updatePrice('p7_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p7_dc" onclick="p7_updatePrice('p7_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p7_du" onclick="checked" value="p7_du">오리지널 도우<br>
+                <input type="radio" name ="p7_du" value="p7_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p7_money">
+            </td>
+            <td><img src="pizza8.png" class="imgsize"></td>
+            <td rowspan="3" width="150px" align="left" class="ft">
+                <h1>토핑</h1>
+                (토핑은 마지막에)<br>
+                <input type="checkbox" id="p8_pp" onclick="p8_updatePrice('p8_pp')">페퍼로니20g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p8_pi" onclick="p8_updatePrice('p8_pi')">파인애플40g(8개)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;500원<br>
+                <input type="checkbox" id="p8_dc" onclick="p8_updatePrice('p8_dc')">도미노 치즈 100g<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3,300원<br>
+                <h1>도우</h1>
+                <input type="radio" name ="p8_du" onclick="checked" value="p8_du">오리지널 도우<br>
+                <input type="radio" name ="p8_du" value="p8_du">나폴리 도우<br>
+                
+                가격<input type="text" value="0" id="p8_money">
+            </td>
+        </tr>
+        <tr>
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p7_type" value="M" onclick="p7sw('m')">M 22,500
+                <input type="radio" name = "p7_type" value="L" onclick="p7sw('l')">L 29,900
+            </td>
+            <td>Size&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name = "p8_type" value="M" onclick="p8sw('m')">M 22,500
+                <input type="radio" name = "p8_type" value="L" onclick="p8sw('l')">L 29,900
+            </td>
+        </tr>
+        <tr>
+            <td>
+                수량 
+            <button onclick="p7_minus()"> ← </button>
+                <input type="text" value='0' id="p7_cnt" class="cnt">
+            <button onclick="p7_plus()"> → </button>
+            </td>
+            <td>
+                수량 
+            <button onclick="p8_minus()"> ← </button>
+                <input type="text" value='0' id="p8_cnt" class="cnt">
+            <button onclick="p8_plus()"> → </button>
+            </td>
+        </tr>
+
+
+    </table>
+
+    <script>
+        function p1sw(size){
+            baseCash = Number(document.getElementById("p1_money").value)
+            if(size == 'm'){
+                document.getElementById("p1_money").value = 19500
+            }else if(size == 'l'){
+                document.getElementById("p1_money").value = 26900
+            }
+        }
+        function p1_updatePrice(p1_toping){
+            chk = p1_toping
+            baseCash = Number(document.getElementById("p1_money").value)
+            addPrice=0
+            if(chk == 'p1_pp'){
+                if(document.getElementById('p1_pp').checked) addPrice += 500
+                else if(!document.getElementById('p1_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p1_pi'){
+                if(document.getElementById('p1_pi').checked) addPrice += 500
+                else if(!document.getElementById('p1_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p1_dc'){
+                if(document.getElementById('p1_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p1_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p1_money").value = baseCash + addPrice
+        }
+        function p1_plus(){
+            cnt = Number(p1_cnt.value)
+            cnt += 1
+            p1_cnt.value = cnt
+            money = Number(p1_money.value)
+            money += money
+            p1_money.value = money
+        }
+        function p1_minus(){
+            cnt = Number(p1_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p1_cnt.value = cnt
+            money = Number(p1_money.value)
+            money -= money
+            p1_money.value = money
+        }
+
+        function p2sw(size){
+            baseCash = Number(document.getElementById("p2_money").value)
+            if(size == 'm'){
+                document.getElementById("p2_money").value = 21500
+            }else if(size == 'l'){
+                document.getElementById("p2_money").value = 28900
+            }
+        }
+        function p2_updatePrice(p2_toping){
+            chk = p2_toping
+            baseCash = Number(document.getElementById("p2_money").value)
+            addPrice=0
+            if(chk == 'p2_pp'){
+                if(document.getElementById('p2_pp').checked) addPrice += 500
+                else if(!document.getElementById('p2_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p2_pi'){
+                if(document.getElementById('p2_pi').checked) addPrice += 500
+                else if(!document.getElementById('p2_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p2_dc'){
+                if(document.getElementById('p2_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p2_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p2_money").value = baseCash + addPrice
+        }
+        function p2_plus(){
+            cnt = Number(p2_cnt.value)
+            cnt += 1
+            p2_cnt.value = cnt
+            money = Number(p2_money.value)
+            money += money
+            p2_money.value = money
+        }
+        function p2_minus(){
+            cnt = Number(p2_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p2_cnt.value = cnt
+            money = Number(p2_money.value)
+            money -= money
+            p2_money.value = money
+        }
+        
+        function p3sw(size){
+            baseCash = Number(document.getElementById("p3_money").value)
+            if(size == 'm'){
+                document.getElementById("p3_money").value = 21500
+            }else if(size == 'l'){
+                document.getElementById("p3_money").value = 28900
+            }
+        }
+        function p3_updatePrice(p3_toping){
+            chk = p3_toping
+            baseCash = Number(document.getElementById("p3_money").value)
+            addPrice=0
+            if(chk == 'p3_pp'){
+                if(document.getElementById('p3_pp').checked) addPrice += 500
+                else if(!document.getElementById('p3_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p3_pi'){
+                if(document.getElementById('p3_pi').checked) addPrice += 500
+                else if(!document.getElementById('p3_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p3_dc'){
+                if(document.getElementById('p3_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p3_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p3_money").value = baseCash + addPrice
+        }
+        function p3_plus(){
+            cnt = Number(p3_cnt.value)
+            cnt += 1
+            p3_cnt.value = cnt
+            money = Number(p3_money.value)
+            money += money
+            p3_money.value = money
+        }
+        function p3_minus(){
+            cnt = Number(p3_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p3_cnt.value = cnt
+            money = Number(p3_money.value)
+            money -= money
+            p3_money.value = money
+        }
+
+        function p4sw(size){
+            baseCash = Number(document.getElementById("p4_money").value)
+            if(size == 'm'){
+                document.getElementById("p4_money").value = 22500
+            }else if(size == 'l'){
+                document.getElementById("p4_money").value = 29900
+            }
+        }
+        function p4_updatePrice(p4_toping){
+            chk = p4_toping
+            baseCash = Number(document.getElementById("p4_money").value)
+            addPrice=0
+            if(chk == 'p4_pp'){
+                if(document.getElementById('p4_pp').checked) addPrice += 500
+                else if(!document.getElementById('p4_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p4_pi'){
+                if(document.getElementById('p4_pi').checked) addPrice += 500
+                else if(!document.getElementById('p4_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p4_dc'){
+                if(document.getElementById('p4_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p4_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p4_money").value = baseCash + addPrice
+        }
+        function p4_plus(){
+            cnt = Number(p4_cnt.value)
+            cnt += 1
+            p4_cnt.value = cnt
+            money = Number(p4_money.value)
+            money += money
+            p4_money.value = money
+        }
+        function p4_minus(){
+            cnt = Number(p4_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p4_cnt.value = cnt
+            money = Number(p4_money.value)
+            money -= money
+            p4_money.value = money
+        }
+
+        function p5sw(size){
+            baseCash = Number(document.getElementById("p5_money").value)
+            if(size == 'm'){
+                document.getElementById("p5_money").value = 23500
+            }else if(size == 'l'){
+                document.getElementById("p5_money").value = 30900
+            }
+        }
+        function p5_updatePrice(p5_toping){
+            chk = p5_toping
+            baseCash = Number(document.getElementById("p5_money").value)
+            addPrice=0
+            if(chk == 'p5_pp'){
+                if(document.getElementById('p5_pp').checked) addPrice += 500
+                else if(!document.getElementById('p5_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p5_pi'){
+                if(document.getElementById('p5_pi').checked) addPrice += 500
+                else if(!document.getElementById('p5_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p5_dc'){
+                if(document.getElementById('p5_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p5_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p5_money").value = baseCash + addPrice
+        }
+        function p5_plus(){
+            cnt = Number(p5_cnt.value)
+            cnt += 1
+            p5_cnt.value = cnt
+            money = Number(p5_money.value)
+            money += money
+            p5_money.value = money
+        }
+        function p5_minus(){
+            cnt = Number(p5_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p5_cnt.value = cnt
+            money = Number(p5_money.value)
+            money -= money
+            p5_money.value = money
+        }
+
+        function p6sw(size){
+            baseCash = Number(document.getElementById("p6_money").value)
+            if(size == 'm'){
+                document.getElementById("p6_money").value = 20500
+            }else if(size == 'l'){
+                document.getElementById("p6_money").value = 27900
+            }
+        }
+        function p6_updatePrice(p6_toping){
+            chk = p6_toping
+            baseCash = Number(document.getElementById("p6_money").value)
+            addPrice=0
+            if(chk == 'p6_pp'){
+                if(document.getElementById('p6_pp').checked) addPrice += 500
+                else if(!document.getElementById('p6_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p6_pi'){
+                if(document.getElementById('p6_pi').checked) addPrice += 500
+                else if(!document.getElementById('p6_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p6_dc'){
+                if(document.getElementById('p6_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p6_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p6_money").value = baseCash + addPrice
+        }
+        function p6_plus(){
+            cnt = Number(p6_cnt.value)
+            cnt += 1
+            p6_cnt.value = cnt
+            money = Number(p6_money.value)
+            money += money
+            p6_money.value = money
+        }
+        function p6_minus(){
+            cnt = Number(p6_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p6_cnt.value = cnt
+            money = Number(p6_money.value)
+            money -= money
+            p6_money.value = money
+        }
+
+        function p7sw(size){
+            baseCash = Number(document.getElementById("p7_money").value)
+            if(size == 'm'){
+                document.getElementById("p7_money").value = 22500
+            }else if(size == 'l'){
+                document.getElementById("p7_money").value = 29900
+            }
+        }
+        function p7_updatePrice(p7_toping){
+            chk = p7_toping
+            baseCash = Number(document.getElementById("p7_money").value)
+            addPrice=0
+            if(chk == 'p7_pp'){
+                if(document.getElementById('p7_pp').checked) addPrice += 500
+                else if(!document.getElementById('p7_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p7_pi'){
+                if(document.getElementById('p7_pi').checked) addPrice += 500
+                else if(!document.getElementById('p7_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p7_dc'){
+                if(document.getElementById('p7_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p7_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p7_money").value = baseCash + addPrice
+        }
+        function p7_plus(){
+            cnt = Number(p7_cnt.value)
+            cnt += 1
+            p7_cnt.value = cnt
+            money = Number(p7_money.value)
+            money += money
+            p7_money.value = money
+        }
+        function p7_minus(){
+            cnt = Number(p7_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p7_cnt.value = cnt
+            money = Number(p7_money.value)
+            money -= money
+            p7_money.value = money
+        }
+
+        function p8sw(size){
+            baseCash = Number(document.getElementById("p8_money").value)
+            if(size == 'm'){
+                document.getElementById("p8_money").value = 22500
+            }else if(size == 'l'){
+                document.getElementById("p8_money").value = 29900
+            }
+        }
+        function p8_updatePrice(p8_toping){
+            chk = p8_toping
+            baseCash = Number(document.getElementById("p8_money").value)
+            addPrice=0
+            if(chk == 'p8_pp'){
+                if(document.getElementById('p8_pp').checked) addPrice += 500
+                else if(!document.getElementById('p8_pp').checked) addPrice -= 500
+            }
+            else if(chk == 'p8_pi'){
+                if(document.getElementById('p8_pi').checked) addPrice += 500
+                else if(!document.getElementById('p8_pi').checked) addPrice -= 500
+            }
+            else if(chk == 'p8_dc'){
+                if(document.getElementById('p8_dc').checked) addPrice += 3300
+                else if(!document.getElementById('p8_dc').checked) addPrice -= 3300
+            }
+            document.getElementById("p8_money").value = baseCash + addPrice
+        }
+        function p8_plus(){
+            cnt = Number(p8_cnt.value)
+            cnt += 1
+            p8_cnt.value = cnt
+            money = Number(p8_money.value)
+            money += money
+            p8_money.value = money
+        }
+        function p8_minus(){
+            cnt = Number(p8_cnt.value)
+            cnt -= 1
+            if(cnt <= 0){
+                cnt = 0
+            }
+            p8_cnt.value = cnt
+            money = Number(p8_money.value)
+            money -= money
+            p8_money.value = money
+        }
+
+
+    </script>
+</body>
+</html>
